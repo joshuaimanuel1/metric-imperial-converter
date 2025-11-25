@@ -48,14 +48,12 @@ if (require.main === module) {
 
     if (process.env.NODE_ENV === "test") {
       console.log("Running Tests...");
-      setTimeout(function () {
-        try {
-          runner.run();
-        } catch (e) {
-          console.log("Tests are not valid:");
-          console.error(e);
-        }
-      }, 1500);
+      try {
+        runner.run();
+      } catch (e) {
+        console.log("Tests are not valid:");
+        console.error(e);
+      }
     }
   });
 }
