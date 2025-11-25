@@ -97,11 +97,11 @@ function ConvertHandler() {
   // 5. Fungsi Konversi Matematika
   this.convert = function (initNum, initUnit) {
     const galToL = 3.78541;
-    const lbsToKg = 0.453592;
+    const lbsToKg = 0.453592; // Pastikan angkanya ini
     const miToKm = 1.60934;
     let result;
 
-    // Normalisasi unit untuk switch case
+    // Normalisasi input
     const unit = initUnit.toLowerCase() === "l" ? "L" : initUnit.toLowerCase();
 
     switch (unit) {
@@ -113,10 +113,10 @@ function ConvertHandler() {
         break;
       case "lbs":
         result = initNum * lbsToKg;
-        break;
+        break; // Lbs ke Kg = DIKALI
       case "kg":
         result = initNum / lbsToKg;
-        break;
+        break; // Kg ke Lbs = DIBAGI
       case "mi":
         result = initNum * miToKm;
         break;
@@ -127,7 +127,6 @@ function ConvertHandler() {
         return undefined;
     }
 
-    // Bulatkan ke 5 desimal
     return parseFloat(result.toFixed(5));
   };
 
